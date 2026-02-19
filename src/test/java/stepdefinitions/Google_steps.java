@@ -18,7 +18,7 @@ public class Google_steps extends Launch_crome {
 
 	    @When("User opens Google")
 	    public void user_opens_google() {
-	        driver.get("https://www.google.com");
+	        driver.get("https://www.saucedemo.com");
 	    }
 
 	    @Then("Title should contain Google")

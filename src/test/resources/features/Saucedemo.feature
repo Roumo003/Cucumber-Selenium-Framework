@@ -1,6 +1,10 @@
-Feature: SauceDemo Website Validation	
+@Saucedemo
+Feature: SauceDemo Website Validation
 
-  Scenario: Verify Google Title
-    Given User launches browser
-    When User opens Google
-    Then Title should contain Google
+
+Scenario:Launch SauceDemo Website
+    Given I am on the SauceDemo website
+    When I enter the username "standard_user"
+    And I enter the password "secret_sauce"
+    And I click on the login button
+    Then I should be logged in successfully
