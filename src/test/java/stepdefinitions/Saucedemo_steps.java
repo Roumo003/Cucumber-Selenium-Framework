@@ -33,6 +33,7 @@ public class Saucedemo_steps extends Saucedemo {
 	@Then("I should be logged in successfully")
 	public void i_should_be_logged_in_successfully() {
 	   sd.i_should_be_logged_in_successfully();
+	   sd.quitDriver();
 	}
 
 }

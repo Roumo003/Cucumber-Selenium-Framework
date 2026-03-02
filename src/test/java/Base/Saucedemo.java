@@ -20,6 +20,9 @@ public class Saucedemo  {
         driver.manage().window().maximize();
         Thread.sleep(2000);
 	}
+	 public static void quitDriver() {
+	        driver.quit();
+	    }
 	public void i_am_on_the_sauce_demo_website() throws InterruptedException {
 		driver.get("https://www.saucedemo.com");
 		Thread.sleep(2000);

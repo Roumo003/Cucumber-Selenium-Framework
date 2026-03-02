@@ -19,5 +19,4 @@ public class Launch_crome {
     public static void quitDriver() {
         driver.quit();
     }
-
 }

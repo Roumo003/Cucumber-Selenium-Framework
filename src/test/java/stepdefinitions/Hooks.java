@@ -14,12 +14,15 @@ import com.aventstack.extentreports.ExtentTest;
 import io.cucumber.java.*;
 import utils.ExtendReporter;
 import utils.ExtentTestManager;
-import Base.Launch_crome; 
+import utils.ScreenshotUtil;
+import Base.Launch_crome;
+
 
 public class Hooks {
 	
 	private static ExtentReports extent = ExtendReporter.getInstance();
 	private WebDriver driver;
+	public static ExtentTest test;
 
     @Before
     public void beforeScenario(Scenario scenario) {
@@ -38,6 +41,27 @@ public class Hooks {
         }
 
         extent.flush();
+    }
+    
+    public void tearDown(Scenario scenario) {
+
+        if (scenario.isFailed()) {
+
+            String screenshotPath = ScreenshotUtil.captureScreenshot(driver, scenario.getName());
+
+            test.fail("Test Failed")
+                .addScreenCaptureFromPath(screenshotPath);
+
+        } else {
+
+            String screenshotPath = ScreenshotUtil.captureScreenshot(driver, scenario.getName());
+
+            test.pass("Test Passed")
+                .addScreenCaptureFromPath(screenshotPath);
+        }
+
+        extent.flush();
+        driver.quit();
     }
 
 }
